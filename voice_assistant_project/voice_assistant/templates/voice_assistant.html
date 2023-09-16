@@ -1,0 +1,20 @@
+<!-- voice_assistant.html in templates folder -->
+<html>
+<head>
+    <title>Voice Assistant</title>
+</head>
+<body>
+    <h1>Voice Assistant</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="user_input" placeholder="Ask a question...">
+        <button type="submit">Ask</button>
+    </form>
+    <div>
+        {% for conversation in conversations %}
+        <p><strong>User:</strong> {{ conversation.user_input }}</p>
+        <p><strong>Assistant:</strong> {{ conversation.assistant_response }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
